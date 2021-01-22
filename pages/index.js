@@ -44,7 +44,7 @@ export default function Home() {
       setDatasets({
         labels,
         datasets: [{
-          label: '# of Votes',
+          label: 'covid tracking',
           data,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -70,8 +70,8 @@ export default function Home() {
   }
   return (
     <div className={styles.container}>
-      <h1>hello</h1>
-      <h3 style={{cursor:'pointer'}} onClick={()=>{getData()}}>Click here</h3>
+      <h1>Welcome to simple next js</h1>
+      <h3 style={{cursor:'pointer'}} onClick={()=>{getData()}}>{data?"":"Click here"}</h3>
       {
         data? <Bar
         data={datasets}
@@ -80,7 +80,7 @@ export default function Home() {
         options={{
           maintainAspectRatio: false
         }}
-      />:"data"
+      />:""
       }
      
       </div>
