@@ -1,19 +1,29 @@
+//Importing necessary modules
 import Head from 'next/head'
 import React from 'react';
 import axios from 'axios';
 import {Bar} from 'react-chartjs-2';
-
+//Returns a stateful value, and a function to update it.
 import { useState } from 'react';
 import styles from '../styles/Home.module.css'
 
+//Creating function Home
 export default function Home() {
   const [data, setData]=useState('')
   const [datasets, setDatasets]=useState({}) 
+  
+  
+//getting data 
   const getData=async()=>{
     await axios.get('https://covidtracking.com/api/states').then(r=>{
     let labels=[]  
     let data=[]
+    
+    
+//pushing the data
     r.data.map(e=>{
+    
+//Appends new elements to an array, and returns the new length of the array.
     labels.push(e.state)
     data.push(e.total)
       })
